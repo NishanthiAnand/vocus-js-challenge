@@ -1,0 +1,25 @@
+﻿<div class= container>
+    <div class="row">
+        <div *ngFor="let user of users" class="card col-12 col-md-3 p-0 mt-4 mr-4">
+            <img *ngIf="!user.state" class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+            <h4  *ngIf="!user.state" class="company">{{user.company}}</h4>
+            <div class="card-body">
+                <p class="card-title"><strong>{{user.nameFirst}}</strong></p>
+                <p class="card-text">{{user.email}}</p>
+                <div id="user-{{user.id}}" *ngIf="user.state" class="collapse multi-collapse">
+                    <div *ngIf="user.loading" class="spinner-border spinner-border-sm"></div>
+                    <p *ngIf="user.permission" ><span class="badge badge-primary">{{user.permission.role}}</span></p>
+                    <div *ngIf="user.permission" class="card-body px-0">
+                        <ul class="list-group">
+                            <li class="list-group-item">Edit administrators <span *ngIf="user.permission.permission.manageSuperUsers" class="fas fa-check float-right"></span></li>
+                            <li class="list-group-item">Edit Users <span *ngIf="user.permission.permission.manageUsers" class="fas fa-check float-right"></span></li>
+                            <li class="list-group-item">Billing and payments <span *ngIf="user.permission.permission.billing" class="fas fa-check float-right"></span></li>
+                            <li class="list-group-item">Edit documents <span *ngIf="user.permission.permission.editDocuments" class="fas fa-check float-right"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn btn-primary" data-toggle="collapse" [attr.data-target]="'#user-' + user.id" (click)="showDetails(user.id)"  >{{ user.state ? 'Show less': 'Show More' }}</button>
+            </div>
+        </div>
+    </div>
+</div>

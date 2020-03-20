@@ -1,0 +1,7 @@
+  
+{
+    "secret": "VocusJsChallenge",
+    "refreshTokenSecret": "VocusJsChallengeRefreshToken",
+    "tokenLife": 60,
+    "refreshTokenLife": 86400
+}

@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["es2018"],
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "preserveConstEnums": true,
     "skipLibCheck": true,
     "strict": true,
